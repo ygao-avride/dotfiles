@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Resolve the absolute path to this script (dotfiles repo root)
+DOTFILES_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+
+# Symlink Git config files from dotfiles into home
+ln -sf "${DOTFILES_DIR}/.gitconfig" ~
+ln -sf "${DOTFILES_DIR}/pre-commit" ~/.git/hooks
+
+# Append Zsh aliases and env vars if .zshrc exists
+# NOTE: This assumes ~/.zshrc is not under dotfiles control
+echo "➕ Appending custom shell config to ~/.zshrc..."
+cat "${DOTFILES_DIR}/.zshrc" >> ~/.zshrc
+
+# Append .gitconfig if .gitconfig exists
+echo "➕ Appending custom git config to ~/.gitconfig..."
+cat "${DOTFILES_DIR}/.gitconfig" >> ~/.gitconfig
+
+
+echo
+echo "✅ Dotfiles installation complete."
+echo "🧠 You may want to restart your shell or run: source ~/.zshrc"

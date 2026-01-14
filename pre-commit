@@ -1,0 +1,40 @@
+#!/bin/sh
+
+### Forbid large files in the repository
+
+# Get the list of changed files in PR
+CHANGED_FILES=$(git diff --name-only --cached --diff-filter=dr -r)
+if [ -z "$CHANGED_FILES" ];
+then
+  # No files to check. The commit might only renamed files.
+  exit 0
+fi
+
+# Check if any of the changed files are larger than 2MB.
+# Note that `third_party/**/BUILD.bazel` are `av_nix`-generated.
+LARGE_FILES=$(find $CHANGED_FILES -type f -size +2M ! \( -path "third_party/*" -name "BUILD.bazel" \))
+if [ -n "$LARGE_FILES" ]; then
+  echo "The following files are larger than 2MB:"
+  echo "$LARGE_FILES"
+  echo "Please reduce the size of these files and try again."
+  exit 1
+fi
+
+# Get the workspace root
+WORKSPACE_ROOT=$(git rev-parse --show-toplevel)
+cd "$WORKSPACE_ROOT"
+
+# Run lint_diff check - this checks only files in the diff
+if ./lint_diff check -k > /dev/null 2>&1; then
+    # All checks passed - silent success
+    exit 0
+else
+    # Linting errors found
+    echo ""
+    echo "❌ Linting errors found in staged changes."
+    echo ""
+    echo "Please run: ./lint_diff fix"
+    echo "Then stage the fixed files and commit again."
+    echo ""
+    exit 1
+fi
