@@ -14,9 +14,9 @@ ln -sf "${DOTFILES_DIR}/git/pre-commit" ~/.git/hooks
 echo "➕ Appending custom shell config to ~/.zshrc..."
 cat "${DOTFILES_DIR}/.zshrc" >> ~/.zshrc
 
-# Install VS Code extensions
-echo "📦 Installing VS Code extensions..."
-python3 "${DOTFILES_DIR}/vscode/install_extensions.py"
+# # Install VS Code extensions
+# echo "📦 Installing VS Code extensions..."
+# python3 "${DOTFILES_DIR}/vscode/install_extensions.py"
 
 echo
 echo "✅ Dotfiles installation complete."
