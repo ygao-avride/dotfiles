@@ -1,0 +1,12 @@
+{
+    "extensions": [
+        "bazelbuild.vscode-bazel",
+        "github.copilot-chat",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "ms-python.vscode-python-envs",
+        "mtxr.sqltools",
+        "ultram4rine.sqltools-clickhouse-driver",
+        "zjffun.gotofolder"
+    ]
+}
