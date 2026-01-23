@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"context": {
+			"url": "https://context.avride.dev/mcp/",
+			"type": "http",
+      "headers": {
+				"Authorization": "Bearer ${CONTEXT_API_TOKEN}",
+				"X-Context-Id": "ygao-context-499"
+			}
+		}
+	},
+	"inputs": []
+}

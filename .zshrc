@@ -1,0 +1,1 @@
+alias aws-av-rnd='aws sso login --profile av-rnd --use-device-code --no-browser'
