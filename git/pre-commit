@@ -22,6 +22,12 @@ fi
 
 # Get the workspace root
 WORKSPACE_ROOT=$(git rev-parse --show-toplevel)
+
+# If not in the workspace/av, skip this pre-commit hook
+if [ "$WORKSPACE_ROOT" != "/workspaces/av" ]; then
+    exit 0
+fi
+
 cd "$WORKSPACE_ROOT"
 
 # Run lint_diff check - this checks only files in the diff
