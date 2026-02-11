@@ -8,6 +8,7 @@ DOTFILES_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 ln -sf "${DOTFILES_DIR}/.gitconfig" ~
 mkdir -p ~/.git/hooks
 ln -sf "${DOTFILES_DIR}/git/pre-commit" ~/.git/hooks
+chmod +x "${DOTFILES_DIR}/git/pre-commit"
 
 # Append Zsh aliases and env vars if .zshrc exists
 # NOTE: This assumes ~/.zshrc is not under dotfiles control
