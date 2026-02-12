@@ -17,9 +17,9 @@ cat "${DOTFILES_DIR}/.zshrc" >> ~/.zshrc
 
 ln -sf "${DOTFILES_DIR}/vscode/mcp.json" ~/.vscode
 
-# # Install VS Code extensions
-# echo "📦 Installing VS Code extensions..."
-# python3 "${DOTFILES_DIR}/vscode/install_extensions.py"
+# Install postgres client
+sudo apt update
+sudo apt-get install -y postgresql-client
 
 echo
 echo "✅ Dotfiles installation complete."
