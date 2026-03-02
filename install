@@ -22,6 +22,7 @@ sudo apt update
 sudo apt-get install -y postgresql-client
 
 # Install TF/TG
+export SHELL=/bin/zsh
 cd /workspaces/iac/
 ./install-terraform.sh 1.14.4
 ./install-terragrunt.sh 0.99.1
