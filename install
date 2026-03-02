@@ -21,6 +21,10 @@ ln -sf "${DOTFILES_DIR}/vscode/mcp.json" ~/.vscode
 sudo apt update
 sudo apt-get install -y postgresql-client
 
+# Install TF/TG
+/workspaces/iac/install-terraform.sh 1.14.4
+/workspaces/iac/install-terragrunt.sh 0.99.1
+
 echo
 echo "✅ Dotfiles installation complete."
 echo "🧠 You may want to restart your shell or run: source ~/.zshrc"
