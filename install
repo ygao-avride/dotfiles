@@ -21,6 +21,8 @@ ln -sf "${DOTFILES_DIR}/vscode/mcp.json" ~/.vscode
 sudo apt update
 sudo apt-get install -y postgresql-client
 
+sudo apt-get install -y zstd
+
 # Install TF/TG
 export SHELL=/bin/zsh
 cd /workspaces/iac/
