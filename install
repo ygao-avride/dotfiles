@@ -24,7 +24,7 @@ sudo apt-get install -y postgresql-client
 sudo apt-get install -y zstd
 
 # merge k8s configs
-export KUBECONFIG=~/.kube/config:~/.kube/config-kansas-gimel:~/.kube/config-kansas-dalet
+export KUBECONFIG=~/.kube/config:~/.kube/config-kansas-gimel:~/.kube/config-kansas-dalet:~/.kube/config-av-rnd
 
 # Install TF/TG
 export SHELL=/bin/zsh
